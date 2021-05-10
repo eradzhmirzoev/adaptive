@@ -180,6 +180,15 @@ table {
 	z-index: 3;
 }
 
+.paragraph {
+	margin-top: 40px;
+	font-size: 28px;
+	line-height: 35px;
+	text-align: center;
+}
+
+
+
 /*meadia*/
 
 @media screen and (max-width: 1024px) {
@@ -198,6 +207,16 @@ table {
 	.menu-burger {
 		display: block;
 		top: 50px;
+	}
+
+	.media-wrapper {
+		max-width: 920px;
+		margin: 0 auto;
+	}
+
+	.paragraph {
+		font-size: 20px;
+		line-height: 25px;
 	}
 
 	/*active*/
@@ -228,6 +247,10 @@ table {
 }
 
 @media screen and (max-width:375px) {
+	.carousel {
+		width: 100%;
+	}
+
 	.header {
 		display: none;
 	}
