@@ -6,6 +6,6 @@ $(document).ready(function(){
 
 $(document).ready(function() {
     $('.menu-burger').click(function(event) {
-        $('.menu-burger, .header, .nav, .logo-svg').toggleClass('active');
+        $('.menu-burger, .header, .drop-menu').toggleClass('active');
     });
 });
