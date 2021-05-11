@@ -78,20 +78,31 @@ table {
 	fill: #000;
 }
 
-.section-header {
-	position: relative;
-}
-
-.container {
+.wrapper {
 	max-width: 1025px;
 	margin: 0 auto;
+	position: relative;
+	
+}
+
+/*выпадающее меню*/
+.wrapper:before {
+	content: "";
+	display: block;
+	height: 336px;
+	width: 100%;
+	position: absolute;
+	background: #000;
+	top: -336px;
+	left: 0;
+	transition: all .3s;
 }
 
 .header {
+	min-height: 250px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	min-height: 250px;
 }
 
 .menu-link {
@@ -101,47 +112,73 @@ table {
 	margin-left: 80px;
 }
 
-/*menu-burger*/ 
-
+/*burger*/
 .menu-burger {
-	width: 48px;
-	height: 30px;
-	position: absolute;
-	top: 0;
-	right: 0;
+    width: 48px;
+    height: 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
 	display: none;
+}
+
+.burger {
+    width: 100%;
+    height: 5px;
+    background-color: #000;
+    position: absolute;
+    top: 13px;
+	transition: all .3s;
 }
 
 .menu-burger:before,
 .menu-burger:after {
-	content: "";
-	display: block;
-	width: 100%;
-	height: 5px;
-	background-color: #000;
-	position: absolute;
+    content: "";
+    display: block;
+    height: 5px;
+    width: 100%;
+    background: #000;
+    position: absolute;
 	transition: all .3s;
 }
 
 .menu-burger:before {
-	top: 0;
+    top: 0;
 }
 
 .menu-burger:after {
-	bottom: 0;
+    bottom: 0;
 }
 
-.burger {
-	width: 100%;
-	height: 5px;
-	background-color: #000;
-	position: absolute;
-	top: 13px;
-	transition: all .3s;
-	
+/*active*/
+
+.wrapper.active:before {
+	z-index: 2;
+	top: -16px;
 }
 
-/*burger js*/
+.header-logo,
+.nav,
+.menu-burger {
+	z-index: 3;
+}
+
+
+.wrapper.active .logo-svg {
+	fill: #fff;
+}
+
+.wrapper.active .menu-link {
+	color: #fff;
+}
+
+.wrapper.active .menu-burger:before,
+.wrapper.active .menu-burger:after,
+.wrapper.active .burger {
+	background-color: #fff;
+}
+
+
 .menu-burger.active:before {
 	transform: rotate(45deg);
 	top: 10px;
@@ -156,255 +193,88 @@ table {
 	transform: scale(0);
 }
 
-/*всплывающая плашка*/
-.drop-menu:before {
-	content: "";
-	display: block;
-	width: 100%;
-	height: 336px;
-	background: black;
-	z-index: 1;
-	top: -336px;
-	left: 0;
-	position: absolute;
-	transition: all .3s;
-}
 
-.drop-menu.active:before {
-	top: -16px;
-}
+/*media*/
 
-.menu-burger,
-.header-logo,
-.nav-menu {
-	z-index: 3;
-}
-
-.paragraph {
-	margin-top: 40px;
-	font-size: 28px;
-	line-height: 35px;
-	text-align: center;
-}
-
-/*history*/
-
-.history, 
-.contact_us {
-	margin-top: 42px;
-}
-
-.title-wrap {
-	width: 100%;
-	height: 80px;
-	border-top: 1px solid #000;
-	border-bottom: 1px solid #000;
-}
-
-.title {
-	font-size: 40px;
-	line-height: 80px;
-	text-transform: uppercase;
-	text-align: center;
-	
-}
-
-/*description*/
-.description {
-	display: flex;
-	justify-content: space-between;
-	margin-top: 60px;
-}
-
-.left-block,
-.right-block {
-	width: 49%;
-	background: #000;
-}
-
-.left-block {
-	padding: 94px 50px;
-}
-
-.right-block {
-	padding: 50px;
-}
-
-.left-block p,
-.right-block p {
-	color: #fff;
-	font-size: 18px;
-	line-height: 26px;
-}
-
-.left-block span,
-.right-block span {
-	font-size: 48px;
-}
-
-/*meadia*/
-@media screen and (max-width: 1024px) {
+@media screen and (max-width:1024px) {
 	.header {
-		min-height: 135px;
-	}
-	
-	.nav-menu {
-		display: none;
-	}
-
-	.header-logo {
-		margin: auto;
-	}
-
-	.menu-burger {
-		display: block;
-		top: 50px;
-	}
-
-	.media-wrapper {
-		max-width: 1024px;
-		margin: 0 auto;
-		padding: 0 15px;
-	}
-
-	.paragraph {
-		font-size: 20px;
-		line-height: 25px;
-		padding: 0 10px;
-	}
-
-	/*active*/
-	.header.active {
+		min-height: 125px;
 		flex-direction: column;
+		justify-content: center;
+	}
+	
+	.nav {
+		display: none;
 	}
 
-	.menu-burger.active:before,
-	.menu-burger.active:after,
-	.menu-burger.active .burger {
-		background-color: #fff;
-	}
-
-	.header.active .logo-svg {
-		fill: #fff;
-	}
-
-	.header.active .nav-menu {
+	.menu-burger {
 		display: block;
-		z-index: 3;
-		position: absolute;
-		top: 176px;
+		top: 54px;
 	}
 
-	.header.active .menu-link {
-		color: #fff;
-	}
-
-	/*history*/ 
-	.history,
-	.contact_us {
-		margin-top: 30px;
-	}
-
-	/*description*/
-	.description {
-		margin-top: 32px;
-		flex-wrap: wrap;
-	}
-
-	.left-block,
-	.right-block {
+	/*active*/ 
+	.wrapper.active .header {
+		min-height: 316px;
 		width: 100%;
-		padding: 48px;
+		position: absolute;
 	}
 
-	.right-block {
-		margin-top: 30px;
+	.wrapper.active .header-logo {
+		position: absolute;
+		top: 25px;
 	}
 
+	.wrapper.active .nav {
+		display: block;
+		margin-top: 80px;
+	}
+	
+	.wrapper.active .menu-link:first-child {
+		margin: 0;
+	}
+	
+	.wrapper.active .stump {
+		min-height: 125px;
+	}
 }
 
-@media screen and (max-width:375px) {
-	.carousel {
-		width: 100%;
-	}
-
+@media screen and (max-width: 375px) {
 	.header {
 		display: none;
 	}
 
 	.menu-burger {
-		top: 40px;
+		top: 35px;
 		right: 20px;
+		z-index: 5;
 	}
 
 	.menu-burger:before,
 	.menu-burger:after,
-	.menu-burger .burger {
+	.burger {
 		background-color: #fff;
+		
+		
 	}
 
-	/*active*/
-	.header.active {
+	/*acive*/
+	.wrapper.active .nav {
+		margin-top: 80px;
+		z-index: 5;
+	}
+
+	.wrapper.active .header-logo,
+	.wrapper.active .nav {
+		align-self: flex-start;
+	}
+	.wrapper.active .header {
+		display: flex;
+		z-index: 5;
+		padding-left: 20px;
+	}
+
+	.wrapper.active .menu-link {
+		margin: 40px 0 0 0;
 		display: block;
-		padding: 30px 0 0 20px;
 	}
-
-	.header.active .header-logo {
-		position: absolute;
-	}
-	
-	.header.active .nav-menu {
-		top: 120px;
-	}
-
-	.header.active .menu-link {
-		margin-left: 0;
-		margin-top: 40px;
-		display: block;
-	}
-
-	.header.active .menu-link:first-child {
-		margin-top: 0;
-	}
-
-	.title-wrap {
-		height: 60px;
-	}
-
-	.title {
-		font-size: 30px;
-		line-height: 60px;
-	}
-	
-	.history,
-	.contact_us {
-		margin-top: 20px;
-	}
-
-	.description {
-		margin-top: 25px;
-	}
-
-	.right-block {
-		margin-top: 22px;
-	}
-
-	.left-block,
-	.right-block {
-		padding: 20px;
-	}
-
-	.left-block p,
-	.right-block p {
-		font-size: 16px;
-		line-height: 23px;
-	}
-
-	.left-block span,
-	.right-block span {
-		font-size: 24px;
-		display: block;
-		line-height: 29px;
-	}
-
 }
