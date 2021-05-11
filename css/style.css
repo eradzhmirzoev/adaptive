@@ -55,7 +55,7 @@ table {
 }
 
 .slider {
-	width: 1025px;
+	max-width: 1025px;
 	margin: 0 auto;
 }
 
@@ -187,10 +187,62 @@ table {
 	text-align: center;
 }
 
+/*history*/
 
+.history, 
+.contact_us {
+	margin-top: 42px;
+}
+
+.title-wrap {
+	width: 100%;
+	height: 80px;
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+}
+
+.title {
+	font-size: 40px;
+	line-height: 80px;
+	text-transform: uppercase;
+	text-align: center;
+	
+}
+
+/*description*/
+.description {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 60px;
+}
+
+.left-block,
+.right-block {
+	width: 49%;
+	background: #000;
+}
+
+.left-block {
+	padding: 94px 50px;
+}
+
+.right-block {
+	padding: 50px;
+}
+
+.left-block p,
+.right-block p {
+	color: #fff;
+	font-size: 18px;
+	line-height: 26px;
+}
+
+.left-block span,
+.right-block span {
+	font-size: 48px;
+}
 
 /*meadia*/
-
 @media screen and (max-width: 1024px) {
 	.header {
 		min-height: 135px;
@@ -210,13 +262,15 @@ table {
 	}
 
 	.media-wrapper {
-		max-width: 920px;
+		max-width: 1024px;
 		margin: 0 auto;
+		padding: 0 15px;
 	}
 
 	.paragraph {
 		font-size: 20px;
 		line-height: 25px;
+		padding: 0 10px;
 	}
 
 	/*active*/
@@ -244,6 +298,29 @@ table {
 	.header.active .menu-link {
 		color: #fff;
 	}
+
+	/*history*/ 
+	.history,
+	.contact_us {
+		margin-top: 30px;
+	}
+
+	/*description*/
+	.description {
+		margin-top: 32px;
+		flex-wrap: wrap;
+	}
+
+	.left-block,
+	.right-block {
+		width: 100%;
+		padding: 48px;
+	}
+
+	.right-block {
+		margin-top: 30px;
+	}
+
 }
 
 @media screen and (max-width:375px) {
@@ -289,5 +366,45 @@ table {
 	.header.active .menu-link:first-child {
 		margin-top: 0;
 	}
+
+	.title-wrap {
+		height: 60px;
+	}
+
+	.title {
+		font-size: 30px;
+		line-height: 60px;
+	}
 	
+	.history,
+	.contact_us {
+		margin-top: 20px;
+	}
+
+	.description {
+		margin-top: 25px;
+	}
+
+	.right-block {
+		margin-top: 22px;
+	}
+
+	.left-block,
+	.right-block {
+		padding: 20px;
+	}
+
+	.left-block p,
+	.right-block p {
+		font-size: 16px;
+		line-height: 23px;
+	}
+
+	.left-block span,
+	.right-block span {
+		font-size: 24px;
+		display: block;
+		line-height: 29px;
+	}
+
 }
